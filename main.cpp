@@ -10,6 +10,6 @@ int main (int argc, char* const argv[]) {
     swap(a, b);
     cout << "After swap" << endl;
     cout << "a = " << a << ", b = " << b << endl;
-    
+    cout << "hello, cmake" << endl;
     return 0;
 }

@@ -11,7 +11,6 @@ CMake Tools
 ## 完全配置json 适配VSCode "F5"
 - launch.json -- for debug
 - tasks.json -- for build before debug
-
 >launch.json
 ```json
 {

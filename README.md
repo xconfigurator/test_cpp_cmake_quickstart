@@ -3,6 +3,8 @@
 ## 视频
 [参考视频](https://www.bilibili.com/video/BV13K411M78v?p=2&spm_id_from=pageDriver)
 
+测试从X13上提交
+
 ## 安装插件
 C/C++
 CMake

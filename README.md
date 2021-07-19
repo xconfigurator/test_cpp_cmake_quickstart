@@ -41,7 +41,11 @@ CMake Tools
                     "ignoreFailures": true
                 }
             ],
-            // "preLaunchTask": "C/C++: g++.exe build active file" // 手动编译：g++ -g ./main.cpp ./swap.cpp -o my_cmake_swap.exe 
+            // 编译：（手动编译）则注释掉"preLaunchTask"
+            // "preLaunchTask": "C/C++: g++.exe build active file"  
+            // 注1(直接调用g++)：g++ -g ./main.cpp ./swap.cpp -o my_cmake_swap.exe
+            // 注2(调用cmake)：cd build; cmake ..; mingw32-make;
+            // 编译：（利用VSCode调用）
             "preLaunchTask": "build" // liuyang modify // 配置tasks.json调用cmake"自动编译"
         }
     ]

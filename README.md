@@ -1,8 +1,27 @@
 # 使用CMake控制的项目
 
 ## 视频
+[参考视频(10分钟) 首选](https://www.bilibili.com/video/BV1rR4y1E7n9?spm_id_from=333.337.search-card.all.click&vd_source=8bd7b24b38e3e12c558d839b352b32f4)  
 [参考视频](https://www.bilibili.com/video/BV13K411M78v?p=2&spm_id_from=pageDriver)
 
+
+## update 20220806  
+1. 不需要做的
+- 不需要.vscode  
+- 如果使用msvc不需要使用Developer Command Prompt for VS 2022打开VSCode工程  
+2. 配置ctrl + shift + p 输入 cmake configure
+```shell
+# 对应配置项目命令：
+cmake -S . -B build
+``` 
+3. 构建ctrl + shift + p 输入 cmake build
+```shell
+# 对应构建项目命令
+cmake --build build
+```
+
+
+## archived before 20220806
 测试从X13上提交
 
 ## 安装插件

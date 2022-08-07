@@ -6,6 +6,7 @@
 
 
 ## update 20220806  
+[参考视频(10分钟) 首选](https://www.bilibili.com/video/BV1rR4y1E7n9?spm_id_from=333.337.search-card.all.click&vd_source=8bd7b24b38e3e12c558d839b352b32f4)  
 1. 不需要做的
 - 不需要.vscode  
 - 如果使用msvc不需要使用Developer Command Prompt for VS 2022打开VSCode工程  
@@ -18,6 +19,24 @@ cmake -S . -B build
 ```shell
 # 对应构建项目命令
 cmake --build build
+```
+
+4. C++第三方库, 推荐微软的vcpkg  
+[vcpkg Github](https://github.com/Microsoft/vcpkg)  
+摘要如下  
+4.1. 命令行构建
+```shell
+# 构建的时候只需要额外置顶vcpkg工具链即可
+cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE=C:/User/xconf/vcpkg/scripts/buildsystems/vcpkg.cmake
+```
+4.2. 使用vscode插件  
+settings.json
+```javascript
+{
+    "cmake.configureSettings" : {
+        "CMAKE_TOOLCHAIN_FILE" : "C:/User/xconf/vcpkg/scripts/buildsystems/vcpkg.cmake"
+    }
+}
 ```
 
 

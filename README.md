@@ -1,12 +1,50 @@
 # 使用CMake控制的项目
 
+## 环境准备
+1. [VSCode](https://code.visualstudio.com/)
+2. 编译链
+    - gcc - 通过Qt、CodeBlocks、Dev-C++带的编译链安装
+    - [clang](https://github.com/llvm/llvm-project/releases)
+    - cl - 通过Visual Studio安装
+2. [cmake](https://cmake.org/)
+3. [vcpkg](https://vcpkg.io/en/index.html)
+4. [powershell 7.2.x+ (这个是vcpkg的依赖项)](https://github.com/PowerShell/PowerShell/releases)
+
 ## 视频
 [参考视频(10分钟) 首选](https://www.bilibili.com/video/BV1rR4y1E7n9?spm_id_from=333.337.search-card.all.click&vd_source=8bd7b24b38e3e12c558d839b352b32f4)  
 [参考视频](https://www.bilibili.com/video/BV13K411M78v?p=2&spm_id_from=pageDriver)
 
+## update 20230804 
+> 本例中cmake到底替换了什么操作 —— 如果直接使用g++  
+
+[来自参考视频](https://www.bilibili.com/video/BV13K411M78v?p=2&spm_id_from=pageDriver)
+```shell
+# 单文档
+g++ main.cpp -o my_single_swap
+# 单文档带调试
+g++ -g main.cpp -o my_single_swap_debug
+
+# 多文档
+g++ -g main.cpp swap.cpp -o my_multi_swap_debug
+```
+> 如果使用cmaket 提要如下（视频27:39开始介绍cmake使用）  
+- 编写最简单的CMakeLists.txt
+```shell
+project(MYSWAP)
+add_executable(my_cmake_swap main.cpp swap.cpp)
+```
+- 进行多文件编译，并调试
+```shell
+mkdir build
+cd build
+# 如果电脑上已经安装了VS，可能会调用MSVC编译器，使用(cmake -G "MinGW Makefiles" ..)代替(cmake ..)即可
+# 仅第一次使用cmake时使用cmake -G "MinGW Makefiles" ..， 后面可使用cmake ..。
+cmake ..
+mingw32-make.exe
+```
 
 ## update 20220806  
-[参考视频(10分钟) 首选](https://www.bilibili.com/video/BV1rR4y1E7n9?spm_id_from=333.337.search-card.all.click&vd_source=8bd7b24b38e3e12c558d839b352b32f4)  
+[来自参考视频(10分钟) 首选](https://www.bilibili.com/video/BV1rR4y1E7n9?spm_id_from=333.337.search-card.all.click&vd_source=8bd7b24b38e3e12c558d839b352b32f4)  
 1. 不需要做的
 - 不需要.vscode  
 - 如果使用msvc不需要使用Developer Command Prompt for VS 2022打开VSCode工程  
@@ -48,7 +86,7 @@ C/C++
 CMake
 CMake Tools
 
-## 完全配置json 适配VSCode "F5"
+## 完全配置json 适配VSCode "F5" (视频44:00左右开始讲解这两个配置文件)
 - launch.json -- for debug
 - tasks.json -- for build before debug
 >launch.json
@@ -91,6 +129,13 @@ CMake Tools
 ```
 
 >tasks.json
+```shell
+# 下面的task.json是为了完成一下的操作。
+cd build
+cmake ..
+# make
+mingw32-make
+```
 ```json
 {
     // liyang add "cd build"
